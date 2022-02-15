@@ -1,0 +1,33 @@
+.siteLayoutContent {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+.siteStatisticDemoCard {
+  padding: 30px;
+  background: #ececec;
+}
+
+.titleColumnOne {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.contextColumnThree {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.productItemMb {
+  margin-bottom: 30px;
+}
+.imgListResponse {
+  height: 200px;
+  width: 100%;
+}
+
+.inputWidthIncreased > div:first-child{
+  width:100%;
+}
