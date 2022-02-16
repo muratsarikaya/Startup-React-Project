@@ -9,6 +9,7 @@ import { Redirect } from "react-router-dom";
 import ProductListPage from "../../pages/ProductListPage";
 import ProductDetail from "../../pages/ProductDetail";
 import "react-image-gallery/styles/css/image-gallery.css"
+import CartPage from "../../pages/CartPage";
 const MainRouter = () => {
   const { currentUser } = useAuth();
   return (
@@ -18,6 +19,7 @@ const MainRouter = () => {
       <Route path="/product/:productId" component={ProductDetail} />
       <Route path="/sign-up" component={Register} />
       <Route path="/sign-in" component={Login} />
+      <Route path="/cart" component={CartPage} />
 
       {localStorage.is_auth ? (
         <Route path="/dashboard" component={Dashboard} />

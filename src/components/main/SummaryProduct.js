@@ -12,9 +12,17 @@ import {
 import { Col } from "reactstrap";
 import { useProduct } from "../../contextApi/ProductContext";
 import { Link } from "react-router-dom";
+import {useBasket} from "../../contextApi/BasketContext";
+
 
 const SummaryProduct = () => {
   const { productList, getProducts } = useProduct();
+  const {addBasket} = useBasket();
+
+  const addProductToBasket = (product) =>{
+    addBasket(product)
+  }
+
   // console.log(productList);
   //console.log(useProduct());
   useEffect(() => {
@@ -25,14 +33,14 @@ const SummaryProduct = () => {
   return (
     <>
       {productList ?
-        productList.map((product) => (
-          <Col xs="3" style={{padding:"0 15px"}} className={styles.productItemMb}>
+        productList.map((product,i) => (
+          <Col key={i} xs="3" style={{padding:"0 15px"}} className={styles.productItemMb}>
             <Card>
               <div style={{ textAlign: "center" }}>
                 <LazyLoadImage
                   className={styles.imgListResponse}
                   src={product.image_url} // use normal <img> attributes as props
-                  
+
                 />
               </div>
 
@@ -49,13 +57,8 @@ const SummaryProduct = () => {
                       Detay
                     </Link>
                   </Button>
-                  <Button success>
-                    <Link
-                      to={`/product/${product.key}`}
-                      style={{ textDecoration: "none", color: "#fff" }}
-                    >
+                  <Button success onClick={()=> addProductToBasket(product)} >
                       Sepete Ekle
-                    </Link>
                   </Button>
                 </div>
               </CardBody>

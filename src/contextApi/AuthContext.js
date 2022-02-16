@@ -4,7 +4,7 @@ import { auth } from "../firebase";
 
 const AuthContext = React.createContext();
 
-const LOCALSTORAGE_AUTH_VALUE = "is_auth"
+const LOCALSTORAGE_AUTH_VALUE = "is_auth";
 
 export const useAuth = () => {
   return useContext(AuthContext);

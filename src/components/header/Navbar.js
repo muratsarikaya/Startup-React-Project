@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "antd/dist/antd.css";
 import { Link, Redirect } from "react-router-dom";
 import {
@@ -11,6 +11,7 @@ import {
 import { Layout, Menu, Dropdown, message, Space, Button } from "antd";
 
 import { useAuth } from "../../contextApi/AuthContext";
+import {useBasket} from "../../contextApi/BasketContext";
 const { Header } = Layout;
 
 function handleMenuClick(e) {
@@ -41,14 +42,18 @@ const AuthActiveMenuItem = (logout) => (
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        Sepete Git
-      </a>
+        <Link to="/cart">
+            Sepete Git
+        </Link>
     </Menu.Item>
   </Menu>
 );
 const Navbar = () => {
   const { currentUser, logout } = useAuth();
+  const {basket} = useBasket();
+
+  useEffect(()=>{
+  },[basket]);
   return (
     <Layout>
       <Header
@@ -80,9 +85,9 @@ const Navbar = () => {
             </Menu.Item>
           </Menu>
         </div>
-        <Space wrap style={{ width: "30%" }}>
+        <Space wrap style={{ width: "38%" }}>
           <Dropdown overlay={menu} placement="bottomCenter" arrow>
-            <Button> Sepet
+            <Button> Sepet ({basket.length})
               <ShoppingCartOutlined style={{fontSize:"18px"}} />
             </Button>
           </Dropdown>
