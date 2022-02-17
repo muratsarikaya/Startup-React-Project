@@ -3,3 +3,7 @@
     padding: 24px;
     background: #fff;
 }
+
+.antFormItemLabel .ant-form-item-label{
+    text-align: left;
+}
