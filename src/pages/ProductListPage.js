@@ -26,7 +26,7 @@ const ProductListPage = () => {
       <Content style={{ padding: "0 50px" }}>
         <div className={styles.siteLayoutContent}>
         <Row>
-            <SummaryProduct />
+            <SummaryProduct md="8" lg="6" xl="4" xxl="3" />
         </Row>
         </div>
       </Content>

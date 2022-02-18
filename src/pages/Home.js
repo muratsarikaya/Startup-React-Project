@@ -23,7 +23,7 @@ function Home() {
           </Col>
         </Row>
         <Row>
-            <SummaryProduct />
+            <SummaryProduct md="6" lg="4" xl="3" xxl="3" />
         </Row>
       </Container>
     </Content>

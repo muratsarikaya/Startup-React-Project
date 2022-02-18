@@ -110,7 +110,7 @@ const ProductFilterForm = () => {
               fontWeight: "500",
             }}
           >
-            <div>
+            <div key="div1">
               <div style={{ lineHeight: "25px" }}>Minimum</div>
               <InputNumber
                 value={min}
@@ -120,7 +120,7 @@ const ProductFilterForm = () => {
                 style={{ width: 70 }}
               />
             </div>
-            <div>
+            <div key="div2">
               <div style={{ lineHeight: "25px" }}>Maksimum</div>
               <InputNumber
                 min={1}
@@ -140,10 +140,11 @@ const ProductFilterForm = () => {
             buttonStyle="solid"
             size="small"
           >
-            {optionsWithDisabled.map((size) => (
+            {optionsWithDisabled.map((size,index) => (
               <Radio.Button
                 style={{ margin: "0 0 10px 10px" }}
                 value={size.value}
+                key={index}
               >
                 {size.label}
               </Radio.Button>
@@ -153,8 +154,9 @@ const ProductFilterForm = () => {
         <SubMenu key="sub3" title="Kategori" style={{ fontWeight: "700" }}>
           <div style={{ paddingLeft: "20px", fontWeight: "500" }}>
             {categoryList &&
-              categoryList.map((ctg) => (
+              categoryList.map((ctg, index) => (
                 <div
+                    key={index}
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -164,6 +166,7 @@ const ProductFilterForm = () => {
                   <Radio.Group
                     onChange={onChangeCategory}
                     value={selectCategory}
+                    key={index}
                   >
                     <Radio value={ctg.category_slug}>{ctg.category_name}</Radio>
                   </Radio.Group>

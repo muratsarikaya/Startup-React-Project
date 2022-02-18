@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import {useBasket} from "../../contextApi/BasketContext";
 
 
-const SummaryProduct = () => {
+const SummaryProduct = (props) => {
   const { productList, getProducts } = useProduct();
   const {addBasket} = useBasket();
 
@@ -33,8 +33,8 @@ const SummaryProduct = () => {
   return (
     <>
       {productList ?
-        productList.map((product,i) => (
-          <Col key={i} xs="3" style={{padding:"0 15px"}} className={styles.productItemMb}>
+        productList.map((product,index) => (
+          <Col key={index}  md={props.md} lg={props.lg} xl={props.xl} xxl={props.xxl}  style={{padding:"0 15px"}} className={styles.productItemMb}>
             <Card>
               <div style={{ textAlign: "center" }}>
                 <LazyLoadImage
@@ -57,7 +57,7 @@ const SummaryProduct = () => {
                       Detay
                     </Link>
                   </Button>
-                  <Button success onClick={()=> addProductToBasket(product)} >
+                  <Button style={{background:"#28a745"}} onClick={()=> addProductToBasket(product)} >
                       Sepete Ekle
                   </Button>
                 </div>
